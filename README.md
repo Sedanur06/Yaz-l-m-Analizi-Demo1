@@ -1,1 +1,1 @@
-# Yaz-l-m-Analizi-Demo1
+# Yazılım-Analizi-Demo1
