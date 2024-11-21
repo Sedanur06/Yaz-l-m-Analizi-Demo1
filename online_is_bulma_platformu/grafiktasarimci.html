@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Tasarımcı Başvurusu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333333;
+        }
+
+        /* Header ve Footer */
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* İçerik */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        .details {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .details h3 {
+            margin-bottom: 10px;
+            color: #6a9fb5;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #6a9fb5;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #4e7b8d;
+        }
+
+        .button.reject {
+            background-color: #dc3545;
+        }
+
+        .button.reject:hover {
+            background-color: #a4282d;
+        }
+    </style>
+    <script>
+        function handleApplication(status) {
+            let message;
+            if (status === 'accept') {
+                message = "Başvuru kabul edildi, kabul maili gönderildi.";
+            } else if (status === 'reject') {
+                message = "Başvuru reddedildi, red maili gönderildi.";
+            }
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="applications.html">Başvurular</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <!-- İçerik -->
+    <div class="container">
+        <h1>Grafik Tasarımcı Başvurusu</h1>
+        <div class="details">
+            <h3>Başvuru Sahibi:</h3>
+            <p><strong>Ad:</strong> Jane Smith</p>
+            <p><strong>Email:</strong> jane.smith@example.com</p>
+            <p><strong>Telefon:</strong> +1 (987) 654-3210</p>
+
+            <h3>İş Detayları:</h3>
+            <p><strong>Pozisyon:</strong> Grafik Tasarımcı</p>
+            <p><strong>Şirket:</strong> Kreatif Çözümler Ltd.</p>
+            <p><strong>İlan Tarihi:</strong> 2024-11-05</p>
+            <p><strong>Lokasyon:</strong> Ankara, Türkiye</p>
+
+            <h3>Açıklama:</h3>
+            <p>
+                Jane Smith, Grafik Tasarımcı pozisyonu için başvuruda bulunmuştur. Adobe Photoshop, Illustrator, 
+                ve Figma gibi araçlarda uzman olan Jane, yaratıcı projelerde deneyimlidir. Kendisi modern tasarım 
+                trendlerine hakim olup, görsel konseptlerde güçlü bir portföy sunmaktadır. Özgeçmişi ve diğer detaylar 
+                aşağıdaki bağlantılar üzerinden incelenebilir.
+            </p>
+
+            <h3>Durum:</h3>
+            <p><strong>Onaylı</strong></p>
+        </div>
+
+        <div class="button-group">
+            <button class="button" onclick="handleApplication('accept')">Başvuruyu Kabul Et</button>
+            <button class="button reject" onclick="handleApplication('reject')">Başvuruyu Reddet</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+</body>
+</html>

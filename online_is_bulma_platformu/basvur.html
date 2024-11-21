@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Örneği</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9; /* Proje arka plan rengi */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Tam ekran yüksekliği */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6a9fb5; /* Başvuru buton rengi */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #89b0b3; /* Hover efekti */
+        }
+
+        /* Popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        #popup p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        #popup button {
+            margin-top: 15px;
+            padding: 5px 10px;
+            background-color: #f44336; /* Kapatma butonu rengi */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #popup button:hover {
+            background-color: #e53935; /* Hover efekti */
+        }
+
+        /* Overlay */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showPopup()">
+        Başvuru Yap
+    </button>
+
+    <div id="popup">
+        <p>Başvurunuz alındı! En kısa sürede sizinle iletişime geçeceğiz.</p>
+        <button onclick="hidePopup()">Kapat</button>
+    </div>
+
+    <div id="overlay" onclick="hidePopup()"></div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

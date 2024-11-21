@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İşe Alım Başvuru</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333333;
+        }
+
+        /* Header ve Footer */
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5; /* index sayfasındaki renk */
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* İçerik */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .step {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #a4c4c7; /* index sayfasındaki renk */
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #89b0b3; /* index sayfasındaki renk */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .back-link a {
+            color: #6a9fb5; /* index sayfasındaki renk */
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Başvuru İçeriği -->
+    <div class="container">
+        <h1>İşe Alım Başvuru Formu</h1>
+        <p>Seçilen iş ilanına başvurmak için aşağıdaki adımları takip edebilirsiniz.</p>
+
+        <!-- Başvuru Adımları -->
+        <div class="step">
+            <h3>Adım 1: Kişisel Bilgilerinizi Girin</h3>
+            <p>Başvurunuzu başlatmadan önce kişisel bilgilerinizi doldurun.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Adım 2: CV'nizi Ekleyin</h3>
+            <p>İş başvurusu için geçerli bir CV yüklemeniz gerekmektedir. CV'niz, başvurunuzun değerlendirilmesinde önemlidir.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Adım 3: Neden Bu İşi İstediğinizi Belirtin</h3>
+            <p>Başvurduğunuz pozisyonla ilgili neden bu işi istediğinizi açıklayan kısa bir mesaj yazın.</p>
+        </div>
+
+        <!-- Başvuru Formu -->
+        <form id="applicationForm" action="javascript:void(0);">
+            <div class="form-group">
+                <label for="name">Ad Soyad</label>
+                <input type="text" id="name" name="name" required placeholder="Adınızı ve soyadınızı girin">
+            </div>
+            <div class="form-group">
+                <label for="email">E-posta</label>
+                <input type="email" id="email" name="email" required placeholder="E-posta adresinizi girin">
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon Numarası</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Telefon numaranızı girin">
+            </div>
+            <div class="form-group">
+                <label for="cv">CV Yükleyin</label>
+                <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx" required>
+            </div>
+            <div class="form-group">
+                <label for="cover_letter">Neden Bu İşi İstediğinizi Açıklayın</label>
+                <textarea id="cover_letter" name="cover_letter" rows="4" required placeholder="Başvurduğunuz pozisyonla ilgili neden bu işi istediğinizi yazın"></textarea>
+            </div>
+            <button type="submit">Başvuruyu Gönder</button>
+        </form>
+
+        <!-- Başarı Mesajı -->
+        <div id="successMessage" class="success-message">
+            Başvurunuz başarıyla alındı!
+        </div>
+
+        <div class="back-link">
+            <a href="features.html">Özellikler Sayfasına Geri Dön</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+
+    <script>
+        // Form gönderildiğinde başarı mesajını göster
+        document.getElementById("applicationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Formun sayfayı yeniden yüklemesini engelle
+            document.getElementById("successMessage").style.display = "block"; // Başarı mesajını göster
+        });
+    </script>
+</body>
+</html>

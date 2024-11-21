@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Sayfa yüksekliği tam ekran */
+        }
+
+        /* Header ve Footer */
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5;
+            color: white;
+            padding: 15px 40px;
+            flex-shrink: 0; /* Footer'ın küçülmesini engeller */
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ana İçerik */
+        .container {
+            flex-grow: 1; /* İçerik alanını genişletir */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* İletişim Formu */
+        .contact-form {
+            width: 100%;
+            max-width: 600px; /* Form genişliğini sınırla */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: calc(100% - 20px); /* Form elemanlarını ekran ortala */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: none; /* Kullanıcının textarea'yı boyutlandırmasını engeller */
+        }
+
+        .contact-form button {
+            width: 100%; /* Butonu tam genişlik yapar */
+            padding: 10px;
+            background-color: #6a9fb5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #5589a4;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer .nav-links a {
+            margin-left: 0; /* Footer linklerinin hizasını index gibi ayarla */
+            margin-right: 20px;
+        }
+
+        .footer .nav-links {
+            display: flex;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <!-- İçerik -->
+    <div class="container">
+        <h1>İletişim</h1>
+        <p>Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilirsiniz:</p>
+
+        <!-- İletişim Bilgileri -->
+        <div class="contact-info">
+            <p><strong>Adres:</strong> İş Bulma Merkezi, Teknoloji Caddesi No: 34, İstanbul, Türkiye</p>
+            <p><strong>Telefon:</strong> +90 123 456 7890</p>
+            <p><strong>Email:</strong> info@tektiklais.com</p>
+        </div>
+
+        <!-- İletişim Formu -->
+        <h2>Bizlere Mesaj Gönderin</h2>
+        <form class="contact-form" id="contactForm" action="javascript:void(0);">
+            <input type="text" name="name" id="name" placeholder="Adınız" required>
+            <input type="email" name="email" id="email" placeholder="Email Adresiniz" required>
+            <textarea name="message" id="message" rows="4" placeholder="Mesajınız" required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message">
+            Mesajınız başarıyla alındı!
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+
+    <script>
+        // Form gönderildiğinde başarı mesajını göster
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Formun sayfayı yeniden yüklemesini engelle
+            document.getElementById("successMessage").style.display = "block"; // Başarı mesajını göster
+        });
+    </script>
+</body>
+</html>

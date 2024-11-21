@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başvuruları Görüntüle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333333;
+        }
+
+        /* Header ve Footer */
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5; /* index sayfasındaki renk */
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* İçerik */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        .application-list {
+            margin-top: 30px;
+        }
+
+        .application-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .application-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .application-item p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .application-status {
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .status-approved {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-pending {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .status-rejected {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .view-button {
+            padding: 8px 16px;
+            background-color: #6a9fb5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .view-button:hover {
+            background-color: #4e7b8d;
+        }
+
+        /* Arama ve Filtreleme */
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1em;
+            width: 45%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .filter-button {
+            padding: 10px 20px;
+            background-color: #6a9fb5;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .filter-button:hover {
+            background-color: #4e7b8d;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .back-link a {
+            color: #6a9fb5;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Başvuruları Görüntüle İçeriği -->
+    <div class="container">
+        <h1>Başvurularınızı Görüntüleyin</h1>
+        <p>Başvurularınızla ilgili durumu aşağıda bulabilirsiniz.</p>
+
+        <!-- Arama ve Filtreleme -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Başvuru yapan adı ile ara..." id="searchInput">
+            <button class="filter-button" onclick="filterApplications()">Filtrele</button>
+        </div>
+
+        <!-- Başvuru Listesi -->
+        <div class="application-list">
+            <div class="application-item">
+                <h3>John Doe - Yazılım Geliştirici</h3>
+                <p><strong>Başvuru Tarihi:</strong> 2024-11-18</p>
+                <p><strong>Durum:</strong> <span class="application-status status-pending">Beklemede</span></p>
+                <a href="yazilimgeliştirici.html" class="view-button">Başvuruyu Görüntüle</a>
+            </div>
+
+            <div class="application-item">
+                <h3>Jane Smith - Grafik Tasarımcı</h3>
+                <p><strong>Başvuru Tarihi:</strong> 2024-11-17</p>
+                <p><strong>Durum:</strong> <span class="application-status status-approved">Onaylı</span></p>
+                <a href="grafiktasarimci.html" class="view-button">Başvuruyu Görüntüle</a>
+            </div>
+
+            <div class="application-item">
+                <h3>Michael Johnson - Veri Analisti</h3>
+                <p><strong>Başvuru Tarihi:</strong> 2024-11-16</p>
+                <p><strong>Durum:</strong> <span class="application-status status-rejected">Reddedildi</span></p>
+                <a href="verianlsti.html" class="view-button">Başvuruyu Görüntüle</a>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="features.html">Özellikler Sayfasına Geri Dön</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+
+    <script>
+        function filterApplications() {
+            var input = document.getElementById('searchInput');
+            var filter = input.value.toUpperCase();
+            var items = document.getElementsByClassName('application-item');
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var title = item.getElementsByTagName('h3')[0].textContent || item.getElementsByTagName('h3')[0].innerText;
+                if (title.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

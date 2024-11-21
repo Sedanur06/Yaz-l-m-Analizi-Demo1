@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemşire İş İlanı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333;
+        }
+
+        /* Header ve Footer */
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* İçerik */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .ilan-detay {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .ilan-detay h2 {
+            font-size: 1.4em;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        .ilan-detay p {
+            font-size: 1em;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .ilan-detay .ilan-gereksinimler {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .ilan-detay button {
+            padding: 10px;
+            background-color: #a4c4c7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .ilan-detay button:hover {
+            background-color: #89b0b3;
+        }
+
+        /* Görsel Düzeni */
+        .ilan-detay img {
+            width: 10%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Başvuru Bildirimi */
+        .basvuru-bildirim {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            display: none; /* Başlangıçta gizli */
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <!-- İçerik -->
+    <div class="container">
+        <h1>Hemşire İş İlanı Detayları</h1>
+
+        <!-- Hemşire İş İlanı Detayı -->
+        <div class="ilan-detay">
+            <!-- Görsel Ekleniyor -->
+            <img src="resimler/hemşire.jpeg" alt="Hemşire Görseli">
+
+            <h2>Hemşire</h2>
+            <p><strong>Lokasyon:</strong> Ankara</p>
+            <p><strong>Kategori:</strong> Sağlık</p>
+            <p><strong>İlan Açıklaması:</strong><br>Sağlık sektöründe çalışacak deneyimli hemşireler aranıyor. İdeal aday, hasta bakımında tecrübeli ve profesyonel bir yaklaşıma sahip olmalıdır. Hemşirelerin klinik ve idari görevleri yerine getirmesi beklenmektedir.</p>
+
+            <h3>İşin Gereksinimleri:</h3>
+            <ul class="ilan-gereksinimler">
+                <li>Hemşirelik bölümünden mezun olmak</li>
+                <li>En az 2 yıl deneyim</li>
+                <li>Hasta bakımı konusunda uzmanlık</li>
+                <li>Ekip çalışmasına yatkınlık</li>
+                <li>İletişim becerileri yüksek</li>
+            </ul>
+
+            <!-- Başvuru butonu -->
+            <button onclick="gonderBasvuru()">Başvur</button>
+            <!-- Başvuru sonrası mesaj -->
+            <div class="basvuru-bildirim" id="basvuruBildirim">Başvurunuz alındı. Teşekkür ederiz!</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function gonderBasvuru() {
+            const bildirim = document.getElementById("basvuruBildirim");
+            bildirim.style.display = "block"; // Mesajı görünür yap
+        }
+    </script>
+</body>
+</html>

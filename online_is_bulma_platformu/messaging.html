@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesajlaşma Sistemi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333333;
+        }
+
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6a9fb5;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .header h2, .footer p {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        .message-list {
+            margin-top: 30px;
+        }
+
+        .message-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .message-item p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .message-status {
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .status-read {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-unread {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .view-button {
+            padding: 8px 16px;
+            background-color: #6a9fb5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .view-button:hover {
+            background-color: #4e7b8d;
+        }
+
+        .message-form {
+            margin-top: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            height: 150px;
+            resize: none;
+        }
+
+        .message-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a9fb5;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .message-form button:hover {
+            background-color: #4e7b8d;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .back-link a {
+            color: #6a9fb5;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Online İş Bulma Platformu</h2>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="contact.html">İletişim</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Mesajlarınızı Görüntüleyin ve Gönderin</h1>
+        <p>Başvuru yapan adaylar ve işverenler arasındaki iletişim.</p>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Mesajları ara..." id="searchInput">
+            <button class="filter-button" onclick="filterMessages()">Filtrele</button>
+        </div>
+
+        <div class="message-list">
+            <div class="message-item">
+                <h3>Aday: John Doe - Yazılım Geliştirici</h3>
+                <p><strong>Mesaj Tarihi:</strong> 2024-11-18</p>
+                <p><strong>Durum:</strong> <span class="message-status status-unread">Okunmadı</span></p>
+                <p><strong>Mesaj:</strong> Merhaba, başvurduğum yazılım geliştirici pozisyonu hakkında daha fazla bilgi almak istiyorum...</p>
+                <a href="msj1.html" class="view-button">Mesajı Görüntüle</a>
+            </div>
+        </div>
+
+        <div class="message-form">
+            <h3>Yeni Mesaj Gönder</h3>
+            <form action="mesajalindi.html" method="get">
+                <textarea id="messageContent" name="message" placeholder="Mesajınızı yazın..." required></textarea>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+
+        <div class="back-link">
+            <a href="features.html">Özellikler Sayfasına Geri Dön</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Online İş Bulma Platformu</p>
+        <div class="nav-links">
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
+        </div>
+    </div>
+
+    <script>
+        function filterMessages() {
+            var input = document.getElementById('searchInput');
+            var filter = input.value.toUpperCase();
+            var items = document.getElementsByClassName('message-item');
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var title = item.getElementsByTagName('h3')[0].textContent || item.getElementsByTagName('h3')[0].innerText;
+                if (title.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

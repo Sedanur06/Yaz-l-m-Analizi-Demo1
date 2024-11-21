@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Giriş/Kayıt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefbe9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Footer için esneklik */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Footer'dan önce biraz boşluk bırak */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background-color: #a4c4c7;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .tab-buttons button.active {
+            background-color: #89b0b3;
+        }
+
+        form {
+            display: none;
+            flex-direction: column;
+        }
+
+        form.active {
+            display: flex;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        button.submit {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            background-color: #89b0b3;
+            color: white;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button.submit:hover {
+            background-color: #75a1a4;
+        }
+
+        /* Footer Düzenlemeleri */
+        .footer {
+            width: 100%;
+            background-color: #6a9fb5;
+            color: white;
+            padding: 15px 20px;
+            text-align: right; /* Sağ hizalama */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kullanıcı Giriş / Kayıt</h1>
+        <!-- Sekmeler -->
+        <div class="tab-buttons">
+            <button class="active" onclick="showForm('login')">Giriş Yap</button>
+            <button onclick="showForm('register')">Kayıt Ol</button>
+        </div>
+
+        <!-- Giriş Formu -->
+        <form id="login-form" class="active">
+            <label for="login-email">E-posta:</label>
+            <input type="email" id="login-email" placeholder="E-posta adresinizi girin" required>
+            <label for="login-password">Şifre:</label>
+            <input type="password" id="login-password" placeholder="Şifrenizi girin" required>
+            <button type="submit" class="submit">Giriş Yap</button>
+        </form>
+
+        <!-- Kayıt Formu -->
+        <form id="register-form">
+            <label for="register-name">Ad Soyad:</label>
+            <input type="text" id="register-name" placeholder="Adınızı ve soyadınızı girin" required>
+            <label for="register-email">E-posta:</label>
+            <input type="email" id="register-email" placeholder="E-posta adresinizi girin" required>
+            <label for="register-password">Şifre:</label>
+            <input type="password" id="register-password" placeholder="Şifrenizi belirleyin" required>
+            <label for="register-confirm-password">Şifre Tekrar:</label>
+            <input type="password" id="register-confirm-password" placeholder="Şifrenizi tekrar girin" required>
+            <button type="submit" class="submit">Kayıt Ol</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="terms.html">Kullanım Şartları</a>
+        <a href="privacy.html">Gizlilik Politikası</a>
+    </div>
+
+    <script>
+        // Sekme değişimi için JavaScript
+        function showForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const buttons = document.querySelectorAll('.tab-buttons button');
+
+            if (formType === 'login') {
+                loginForm.classList.add('active');
+                registerForm.classList.remove('active');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
